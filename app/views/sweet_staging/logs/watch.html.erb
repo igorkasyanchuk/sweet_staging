@@ -1,0 +1,15 @@
+<div class="tabs is-large">
+  <ul>
+    <% SweetStaging.logs.each_with_index do |log, index| %>
+      <li class="<%= 'is-active' if log[:name] == params[:name] || (index == 0 && params[:name].blank?)  %>">
+        <%= link_to log[:name], sweet_staging.watch_url(name: log[:name]), "changes_url" => sweet_staging.changes_url(name: log[:name]) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
+<div id="logs">
+  <div class="loader-wrapper">
+    <div class="loader is-loading"></div>
+  </div>
+</div>

@@ -1,5 +1,6 @@
 module SweetStaging
   class BaseController < ActionController::Base
+    include SweetStaging::ApplicationHelper
     layout 'sweet_staging/layouts/sweet_staging'
 
     before_action :verify_access

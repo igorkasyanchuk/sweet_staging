@@ -1,1 +1,27 @@
-<%= yield %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sweet Staging</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag if ::Rails::VERSION::STRING.to_f >= 5.2 %>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <%= render '/sweet_staging/stylesheets/stylesheets' %>
+    <link rel="shortcut icon" href="/favicon.ico">
+  </head>
+  <body class="page-wrapper">
+    <div class="content-wrapper">
+      <section class="section">
+        <div class="">
+          <%#= render '/sweet_staging/shared/header' %>
+          <%= yield %>
+        </div>
+      </section>
+    </div>
+    <%#= render '/sweet_staging/shared/footer' %>
+    <%= render '/sweet_staging/javascripts/javascripts' %>
+    <%= yield :on_load %>
+  </body>
+</html>

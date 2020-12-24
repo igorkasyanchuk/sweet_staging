@@ -1,5 +1,13 @@
 SweetStaging::Engine.routes.draw do
-  get '/' => 'home#index', as: :home
+  get '/'              => 'home#index', as: :home
+  get '/watch'         => 'logs#watch', as: :watch
+  get '/watch/changes' => 'logs#changes', as: :changes
+
+  ["ansi_up.js.map", "perfect-scrollbar.min.js.map", "bulmaswatch.min.css.map", "ansi_up.js.map", "perfect-scrollbar.min.js.map", "bulmaswatch.min.css.map"].each do |res|
+    get "/#{res}", to: -> (env) do
+      [200, { 'Content-Type' => 'text/plain' }, ['']]
+    end
+  end
 end
 
 Rails.application.routes.draw do

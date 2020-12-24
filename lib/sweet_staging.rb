@@ -24,6 +24,9 @@ module SweetStaging
   mattr_accessor :verify_access_proc
   @@verify_access_proc = proc { |controller| true }
 
+  mattr_accessor :logs
+  @@logs = []
+
   def self.setup
     yield(self)
   end
