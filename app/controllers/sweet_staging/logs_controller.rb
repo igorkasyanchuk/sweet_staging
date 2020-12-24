@@ -8,17 +8,15 @@ module SweetStaging
       end
 
       def changes
-        @lines = lines
+        @lines       = log_file.readlines
+        @total_lines = log_file.total_lines
       end
 
-      def log_file_path
-        item = SweetStaging.logs.detect {|e| e[:name] == params[:name]}
-        "#{::Rails.root}/#{item[:path]}"
-      end
-
-      def lines
-        puts "  [Reading] => #{log_file_path}"
-        File.open(log_file_path).readlines.last(600)
+      def log_file
+        @log_file ||= begin
+          item = SweetStaging.logs.detect {|e| e[:name] == params[:name]}
+          LogFile.new(path: "#{::Rails.root}/#{item[:path]}", client_total_lines: params[:client_total_lines])
+        end
       end
     end
 

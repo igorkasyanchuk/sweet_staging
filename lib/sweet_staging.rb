@@ -31,6 +31,45 @@ module SweetStaging
     yield(self)
   end
 
+  # class SilentLogger < SimpleDelegator
+  #   def initialize(logger)
+  #     super
+  #   end
+
+  #   %i(debug info warn error fatal unknown).each do |method_name|
+  #     define_method(method_name) { |*_args| }
+  #   end
+  # end
+
+  class LogFile
+    MAX_LINES = 1000
+    attr_reader :path, :client_total_lines
+
+    def initialize(path:, client_total_lines:)
+      @path               = path
+      @client_total_lines = client_total_lines.presence || MAX_LINES
+    end
+
+    def total_lines
+      @total_lines ||= begin
+        #puts "wc -l #{path}"
+        `wc -l #{path}`.split.first.to_i
+      end
+    end
+
+    def readlines
+      #puts "tail -n #{amount} #{path}"
+      `tail -n #{amount} #{path}`.split(/\n/)
+    end
+
+    def amount
+      result = total_lines - client_total_lines.to_i
+      result = MAX_LINES if result < 0
+      result = MAX_LINES if result > MAX_LINES
+      result
+    end
+  end
+
 end
 
 require "sweet_staging/engine"

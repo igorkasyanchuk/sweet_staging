@@ -11,10 +11,14 @@
 #logs {
 	position: relative;
 	width: 100%;
-	height: 800px;
+	height: 750px;
 
 	font-family: Consolas, "Ubuntu Mono";
 	font-size: 13px;
 	line-height: 17px;
 	white-space: pre-wrap;
+}
+
+#controls {
+	padding-top: 20px;
 }

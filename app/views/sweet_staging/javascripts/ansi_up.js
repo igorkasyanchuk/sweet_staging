@@ -82,7 +82,7 @@ var AnsiUp = (function () {
                     { rgb: [187, 0, 0], class_name: "ansi-red" },
                     { rgb: [0, 187, 0], class_name: "ansi-green" },
                     { rgb: [187, 187, 0], class_name: "ansi-yellow" },
-                    { rgb: [0, 0, 187], class_name: "ansi-blue" },
+                    { rgb: [120, 159, 209], class_name: "ansi-blue" },
                     { rgb: [187, 0, 187], class_name: "ansi-magenta" },
                     { rgb: [0, 187, 187], class_name: "ansi-cyan" },
                     { rgb: [255, 255, 255], class_name: "ansi-white" }

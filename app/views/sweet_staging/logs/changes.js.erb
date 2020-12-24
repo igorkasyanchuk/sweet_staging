@@ -1,1 +1,5 @@
+$(".loader-wrapper").remove();
+
 populateLogs(<%= raw @lines.to_json %>);
+
+$client_total_lines = <%= @total_lines %>;

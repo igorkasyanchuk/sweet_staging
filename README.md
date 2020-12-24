@@ -21,6 +21,14 @@ Or install it yourself as:
 $ gem install sweet_staging
 ```
 
+## TODO
+
+- on scroll put on pause, on scroll to the bottom continue scrolling
+- on selection put on pause
+- icons for pause, play
+- flexbox design
+- implement link to log line feature
+
 ## Contributing
 Contribution directions go here.
 

@@ -3,6 +3,8 @@ module SweetStaging
     include SweetStaging::ApplicationHelper
     layout 'sweet_staging/layouts/sweet_staging'
 
+    # self.logger = SweetStaging::SilentLogger.new(config.logger)
+
     before_action :verify_access
 
     if SweetStaging.http_basic_authentication_enabled
