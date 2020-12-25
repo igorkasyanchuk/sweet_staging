@@ -22,3 +22,9 @@
 #controls {
 	padding-top: 20px;
 }
+
+#controls a svg {
+	width: 16px;
+	height: 16px;
+	margin-right: 6px;
+}

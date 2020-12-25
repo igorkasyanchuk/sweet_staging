@@ -14,8 +14,19 @@
   </div>
 </div>
 
-<div id="controls">
-  <a class="button" id="pause" onclick="pauseButton();">Pause</a>
-  <a class="button is-hidden" id="start" onclick="startButton();">Start</a>
-  <a class="button" onclick="$($logs).empty(); return false;">Clear</a>
+<div class="columns is-fluid" id="controls">
+  <div class="column">
+    <a class="button" id="pause" onclick="pauseButton();">
+      <%= icon 'pause2' %>
+      Pause
+    </a>
+    <a class="button is-hidden" id="start" onclick="startButton();">
+      <%= icon 'play3' %>
+      Start
+    </a>
+    <a class="button" id="clear" onclick="clearButton();">
+      <%= icon 'record' %>
+      Clear
+    </a>
+  </div>
 </div>

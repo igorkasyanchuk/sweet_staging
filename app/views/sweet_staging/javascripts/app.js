@@ -58,3 +58,8 @@ function startButton() {
   $running = false;
   fetchLogs();
 }
+
+function clearButton() {
+  $($logs).empty();
+  return false;
+}
