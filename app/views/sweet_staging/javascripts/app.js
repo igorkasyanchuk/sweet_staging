@@ -2,9 +2,10 @@ var $client_total_lines = null;
 var $logs = null;
 var $timer = null;
 var $running = false;
+var $pause = false;
 
 $(function() {
-  $timer = setInterval(fetchLogs, 1000);
+  $timer = setInterval(fetchLogs, FETCH_TIMEOUT);
   fetchLogs();
 
   $logs = document.getElementById("logs");
@@ -12,6 +13,11 @@ $(function() {
 });
 
 function fetchLogs() {
+  if ($pause) {
+    console.log("On pause.");
+    return;
+  }
+
   if($running) {
     console.log("Skip fetch, too many requests.");
     return;
@@ -29,6 +35,22 @@ function fetchLogs() {
       client_total_lines: $client_total_lines
     },
   }).done(function() { $running = false; });
+
+  keyboardJS.bind('p', (e) => {
+    $pause = true;
+    pauseButton();
+  });
+
+  keyboardJS.bind('s', (e) => {
+    $pause = false;
+    startButton();
+  });
+
+  keyboardJS.bind('c', (e) => {
+    console.log('c');
+    clearButton();
+  });
+
 }
 
 function populateLogs(lines) {
@@ -49,13 +71,17 @@ function populateLogs(lines) {
 function pauseButton() {
   $('#start').toggleClass("is-hidden");
   $('#pause').toggleClass("is-hidden");
+  $('#three-dots').addClass("is-hidden");
   $running = true;
+  $pause = true;
 }
 
 function startButton() {
   $('#start').toggleClass("is-hidden");
   $('#pause').toggleClass("is-hidden");
+  $('#three-dots').removeClass("is-hidden");
   $running = false;
+  $pause = false;
   fetchLogs();
 }
 

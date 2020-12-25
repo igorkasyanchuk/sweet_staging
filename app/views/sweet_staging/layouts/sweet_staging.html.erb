@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <%= render '/sweet_staging/stylesheets/stylesheets' %>
     <link rel="shortcut icon" href="/favicon.ico">
+    <script>
+      var FETCH_TIMEOUT = <%= SweetStaging.fetch_timeout %>;
+    </script>
   </head>
   <body class="page-wrapper">
     <div class="content-wrapper">
@@ -20,7 +23,7 @@
         </div>
       </section>
     </div>
-    <%= render '/sweet_staging/shared/footer' %>
+    <%#= render '/sweet_staging/shared/footer' %>
     <%= render '/sweet_staging/javascripts/javascripts' %>
     <%= yield :on_load %>
   </body>

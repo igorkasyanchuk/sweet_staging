@@ -28,3 +28,24 @@
 	height: 16px;
 	margin-right: 6px;
 }
+
+.github-ext {
+	display: inline-block;
+	margin-top: 15px;
+	height: 14px;
+}
+
+.github-ext svg {
+	height: 14px;
+	width: 14px;
+}
+
+#three-dots {
+	display: inline-block;
+	margin-left: 20px;
+	padding-top: 5px;
+}
+
+#three-dots svg {
+	height: 4px;
+}

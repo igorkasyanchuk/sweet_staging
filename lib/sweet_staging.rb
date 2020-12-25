@@ -24,6 +24,9 @@ module SweetStaging
   mattr_accessor :verify_access_proc
   @@verify_access_proc = proc { |controller| true }
 
+  mattr_accessor :fetch_timeout
+  @@fetch_timeout = 5000
+
   mattr_accessor :logs
   @@logs = []
 
