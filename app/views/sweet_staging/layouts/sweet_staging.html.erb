@@ -14,15 +14,13 @@
       var FETCH_TIMEOUT = <%= SweetStaging.fetch_timeout %>;
     </script>
   </head>
-  <body class="page-wrapper">
-    <div class="content-wrapper">
-      <section class="section">
-        <div class="">
-          <%#= render '/sweet_staging/shared/header' %>
-          <%= yield %>
-        </div>
-      </section>
-    </div>
+  <body>
+    <section>
+      <div class="">
+        <%#= render '/sweet_staging/shared/header' %>
+        <%= yield %>
+      </div>
+    </section>
     <%#= render '/sweet_staging/shared/footer' %>
     <%= render '/sweet_staging/javascripts/javascripts' %>
     <%= yield :on_load %>

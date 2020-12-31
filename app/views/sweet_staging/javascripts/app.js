@@ -9,7 +9,6 @@ $(function() {
   fetchLogs();
 
   $logs = document.getElementById("logs");
-  const ps = new PerfectScrollbar($logs);
 });
 
 function fetchLogs() {

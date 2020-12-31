@@ -1,4 +1,4 @@
-<div class="tabs is-large">
+<div class="page-header tabs is-large">
   <ul>
     <% SweetStaging.logs.each_with_index do |log, index| %>
       <li class="<%= 'is-active' if log[:name] == params[:name] || (index == 0 && params[:name].blank?)  %>">
@@ -8,13 +8,14 @@
   </ul>
 </div>
 
-<div id="logs">
+<div class="page-content">
   <div class="loader-wrapper">
     <div class="loader is-loading"></div>
   </div>
+  <div id="logs"></div>
 </div>
 
-<div class="columns is-fluid" id="controls">
+<div class="page-footer columns is-fluid" id="controls">
   <div class="column">
     <a class="button" id="pause" onclick="pauseButton();">
       <%= icon 'pause2' %>
