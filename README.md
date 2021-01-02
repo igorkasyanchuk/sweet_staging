@@ -28,6 +28,7 @@ $ gem install sweet_staging
 - icons for pause, play
 - flexbox design
 - implement link to log line feature
+- print env
 
 ## Contributing
 Contribution directions go here.
