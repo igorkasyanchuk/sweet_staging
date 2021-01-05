@@ -19,6 +19,11 @@ function consoleWorkerInit() {
   $console = document.getElementById("console");
 }
 
+function commandsWorkerInit() {
+  $commands = document.getElementById("command-output");
+  $commands.scrollTop = $commands.scrollHeight;
+}
+
 function fetchLogs() {
   if ($pause) {
     console.log("On pause.");

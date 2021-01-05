@@ -39,9 +39,9 @@
   line-height: 17px;
   white-space: pre-wrap;
   overflow-y: scroll;
- 
+
   /* Firefox custom scrollbar */
-   
+
   scrollbar-width: thin;
   scrollbar-color: #888 black;
 }
@@ -105,6 +105,14 @@ body::-webkit-scrollbar {
 }
 
 #console {
+  font-family: Consolas, "Ubuntu Mono";
+  font-size: 13px;
+	line-height: 17px;
+	overflow-y: scroll;
+}
+
+#command-output {
+	overflow-y: scroll;
   font-family: Consolas, "Ubuntu Mono";
   font-size: 13px;
   line-height: 17px;
