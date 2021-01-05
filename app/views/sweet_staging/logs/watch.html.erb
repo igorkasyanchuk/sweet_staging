@@ -1,12 +1,10 @@
-<div class="page-header tabs is-large">
-  <ul>
-    <% SweetStaging.logs.each_with_index do |log, index| %>
-      <li class="<%= 'is-active' if log[:name] == params[:name] || (index == 0 && params[:name].blank?)  %>">
-        <%= link_to log[:name], sweet_staging.watch_url(name: log[:name]), "changes_url" => sweet_staging.changes_url(name: log[:name]) %>
-      </li>
-    <% end %>
-  </ul>
-</div>
+<%= provide :title, params[:name] %>
+
+<script>
+  $(function() {
+    logsWorkerInit();
+  });
+</script>
 
 <div class="page-content">
   <div class="loader-wrapper">

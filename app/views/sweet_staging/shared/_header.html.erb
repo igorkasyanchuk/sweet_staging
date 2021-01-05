@@ -1,3 +1,21 @@
-<%= link_to sweet_staging.home_url, class: "logo" do %>
-  <h2>Logs</h2>
-<% end %>
+<div class="page-header tabs is-large">
+  <ul>
+    <% SweetStaging.logs.each_with_index do |log, index| %>
+      <li class="<%= 'is-active' if log[:name] == params[:name] || (index == 0 && params[:name].blank? && controller_name == 'logs')  %>">
+        <%= link_to log[:name], sweet_staging.watch_url(name: log[:name]), "changes_url" => sweet_staging.changes_url(name: log[:name]) %>
+      </li>
+    <% end %>
+
+    <% if SweetStaging.console %>
+      <li class="<%= 'is-active' if controller_name == 'console' %>">
+        <%= link_to "Console", sweet_staging.console_url %>
+      </li>
+    <% end %>
+
+    <% SweetStaging.commands.each_with_index do |command, index| %>
+      <li class="<%= 'is-active' if command[:name] == params[:name] || (index == 0 && params[:name].blank? && controller_name == 'commands')  %>">
+        <%= link_to command[:name], sweet_staging.call_url(name: command[:name]) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

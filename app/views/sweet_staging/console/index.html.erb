@@ -1,0 +1,13 @@
+<%= provide :title, "Rails Console" %>
+
+<script>
+  $(function() {
+    consoleWorkerInit();
+  });
+</script>
+
+<div class="page-content">
+  <div id="console"></div>
+  <textarea id="input" url="<%= sweet_staging.execute_url %>"></textarea>
+  <button onclick="executeConsole();">Execute</button>
+</div>

@@ -1,4 +1,6 @@
 require "sweet_staging/version"
+require "awesome_print"
+require "open3"
 
 module SweetStaging
   mattr_accessor :enabled
@@ -25,10 +27,16 @@ module SweetStaging
   @@verify_access_proc = proc { |controller| true }
 
   mattr_accessor :fetch_timeout
-  @@fetch_timeout = 5000
+  @@fetch_timeout = 1000
 
   mattr_accessor :logs
   @@logs = []
+
+  mattr_accessor :console
+  @@console = true
+
+  mattr_accessor :commands
+  @@commands = []
 
   def self.setup
     yield(self)

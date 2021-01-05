@@ -3,13 +3,21 @@ var $logs = null;
 var $timer = null;
 var $running = false;
 var $pause = false;
+var $console = null;
 
 $(function() {
+  //
+});
+
+function logsWorkerInit() {
   $timer = setInterval(fetchLogs, FETCH_TIMEOUT);
   fetchLogs();
-
   $logs = document.getElementById("logs");
-});
+}
+
+function consoleWorkerInit() {
+  $console = document.getElementById("console");
+}
 
 function fetchLogs() {
   if ($pause) {
@@ -87,4 +95,25 @@ function startButton() {
 function clearButton() {
   $($logs).empty();
   return false;
+}
+
+function executeConsole() {
+  var url = $("#input").attr("url");
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: {
+      code: $("#input").val()
+    },
+  }).done(function() { $running = false; });
+}
+
+function populateResults(code, html) {
+  html = html.replace(/^\&quot\;/g, '');
+  html = html.replace(/\&quot\;$/g, '');
+
+  $console.innerHTML = $console.innerHTML + "<div class='code'>" + code + "</div>";
+
+  $console.innerHTML = $console.innerHTML + html;
+  $console.scrollTop = $console.scrollHeight;
 }

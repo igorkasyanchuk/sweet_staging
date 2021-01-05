@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sweet Staging</title>
+    <title><%= yield :title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag if ::Rails::VERSION::STRING.to_f >= 5.2 %>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
     <%= render '/sweet_staging/stylesheets/stylesheets' %>
+    <%= render '/sweet_staging/javascripts/javascripts' %>
     <link rel="shortcut icon" href="/favicon.ico">
     <script>
       var FETCH_TIMEOUT = <%= SweetStaging.fetch_timeout %>;
@@ -17,12 +18,11 @@
   <body>
     <section>
       <div class="">
-        <%#= render '/sweet_staging/shared/header' %>
+        <%= render '/sweet_staging/shared/header' %>
         <%= yield %>
       </div>
     </section>
     <%#= render '/sweet_staging/shared/footer' %>
-    <%= render '/sweet_staging/javascripts/javascripts' %>
     <%= yield :on_load %>
   </body>
 </html>

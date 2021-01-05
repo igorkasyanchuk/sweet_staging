@@ -1,5 +1,7 @@
 SweetStaging.setup do |config|
   config.enabled  = true
+  config.fetch_timeout = 2000
+  config.console = true
   config.logs = [
     {
       name: "development.log",
@@ -16,7 +18,21 @@ SweetStaging.setup do |config|
     {
       name: "cron.log",
       path: "log/cron.log"
+    },
+    {
+      name: "not-exists.log",
+      path: "log/not-exists.log"
     }
+  ]
+  config.commands = [
+    {
+      name: "ps aux",
+      command: "ps aux"
+    },
+    {
+      name: "free -m",
+      command: "free -m"
+    },
   ]
 
 end if defined?(SweetStaging)
