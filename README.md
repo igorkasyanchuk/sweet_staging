@@ -51,7 +51,7 @@ $ bundle
 - icons for pause, play
 - implement link to log line feature
 - rails console?
-- unix commands
+- unix commands?
 
 ## Contributing
 
