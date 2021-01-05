@@ -112,7 +112,7 @@ function populateResults(code, html) {
   html = html.replace(/^\&quot\;/g, '');
   html = html.replace(/\&quot\;$/g, '');
 
-  $console.innerHTML = $console.innerHTML + "<div class='code'>" + code + "</div>";
+  $console.innerHTML = $console.innerHTML + '<div class=\'code\'>' + code + '</div>';
 
   $console.innerHTML = $console.innerHTML + html;
   $console.scrollTop = $console.scrollHeight;

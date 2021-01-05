@@ -1,3 +1,7 @@
-<% @result = ap(@result).to_json %>
+<% @result = ap(@result) %>
 
-populateResults("<%= j params[:code] %>", "<%= @result %>");
+var result = `
+  <%= raw @result %>
+`;
+
+populateResults('<%= params[:code] %>', result);

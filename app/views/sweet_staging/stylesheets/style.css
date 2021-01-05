@@ -104,9 +104,19 @@ body::-webkit-scrollbar {
   height: 4px;
 }
 
+#console {
+  font-family: Consolas, "Ubuntu Mono";
+  font-size: 13px;
+  line-height: 17px;
+}
+
 .code {
 
 }
 
 .debug_dump {
+}
+
+pre {
+	background: #111;
 }
