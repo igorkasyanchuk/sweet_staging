@@ -8,7 +8,10 @@
 
     <% if SweetStaging.console %>
       <li class="<%= 'is-active' if controller_name == 'console' %>">
-        <%= link_to "Console", sweet_staging.console_url %>
+        <%= link_to sweet_staging.console_url, class: 'console-icon' do %>
+          <%= icon 'ror' %>
+          console
+        <% end %>
       </li>
     <% end %>
 

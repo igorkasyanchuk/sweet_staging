@@ -33,6 +33,10 @@ SweetStaging.setup do |config|
       name: "free -m",
       command: "free -m"
     },
+    {
+      name: "list files",
+      command: "ls -l"
+    },
   ]
 
 end if defined?(SweetStaging)

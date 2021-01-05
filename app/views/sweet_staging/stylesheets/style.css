@@ -18,7 +18,7 @@
   padding: 70px 20px 0 20px;
   position: relative;
 }
-	 
+   
 .loader-wrapper {
   position: absolute;
   width: 100%;
@@ -107,12 +107,19 @@ body::-webkit-scrollbar {
 #console {
   font-family: Consolas, "Ubuntu Mono";
   font-size: 13px;
-	line-height: 17px;
-	overflow-y: scroll;
+  line-height: 17px;
+  overflow-y: scroll;
+}
+
+.console-icon svg {
+  margin-top: 6px;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
 }
 
 #command-output {
-	overflow-y: scroll;
+  overflow-y: scroll;
   font-family: Consolas, "Ubuntu Mono";
   font-size: 13px;
   line-height: 17px;
@@ -126,5 +133,5 @@ body::-webkit-scrollbar {
 }
 
 pre {
-	background: #111;
+  background: #111;
 }
