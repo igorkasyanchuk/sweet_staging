@@ -115,6 +115,9 @@ function executeConsole() {
       code: $("#input").val()
     },
   }).done(function() { $running = false; });
+
+  $('.loader-wrapper').show();
+  $('#console').addClass('hidden');
 }
 
 function populateResults(code, html) {

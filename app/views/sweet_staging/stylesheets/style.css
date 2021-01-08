@@ -107,6 +107,10 @@ body::-webkit-scrollbar {
   height: calc(100vh - 256px);
 }
 
+#console.hidden {
+  opacity: 0.5;
+}
+
 .console-icon svg {
   margin-top: 6px;
   width: 24px;
@@ -142,4 +146,8 @@ pre {
   width: 16px;
   height: 16px;
   margin-right: 6px;
+}
+
+.console-content.loader-wrapper {
+  display: none;
 }

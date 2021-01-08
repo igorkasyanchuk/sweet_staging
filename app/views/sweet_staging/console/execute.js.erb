@@ -4,4 +4,7 @@ var result = `
   <%= raw @result %>
 `;
 
+$('.loader-wrapper').hide();
+$('#console').removeClass('hidden');
+
 populateResults('<%= params[:code] %>', result);
