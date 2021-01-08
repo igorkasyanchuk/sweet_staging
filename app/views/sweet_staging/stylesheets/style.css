@@ -45,7 +45,6 @@ body::-webkit-scrollbar {
   font-family: Consolas, "Ubuntu Mono";
   font-size: 13px;
   line-height: 17px;
-  white-space: pre-wrap;
   overflow-y: scroll;
 
   /* Firefox custom scrollbar */
@@ -55,6 +54,7 @@ body::-webkit-scrollbar {
 
 #logs {
   height: calc(100vh - 150px);
+  white-space: pre-wrap;
 }
 
 /* Webkit custom scrollbar */
