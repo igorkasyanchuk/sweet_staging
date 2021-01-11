@@ -2,6 +2,8 @@
 
 We often need access to the staging.logs (or production), sidekiq.log, etc. And often direct access to the server is closed and you cannot get them. The idea of this gem is let developer or QA get access to the logs which you want to share.
 
+This gem allows to access files which are ONLY specified in config. Same about shell commands. Same about Rails console.
+
 ### Very Important
 
 ```
@@ -68,6 +70,8 @@ end if defined?(SweetStaging)
 ```
 
 You can use configuration options above to protect access to the logs for a specific user or by HTTP BASIC auth.
+
+Please note, that this is not a real Rails console as we used, it's basically evaluating Ruby code sent to the server (stateless).
 
 ## Installation
 
