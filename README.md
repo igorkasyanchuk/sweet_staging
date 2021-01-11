@@ -90,12 +90,15 @@ $ bundle
 
 After the installation start the server and open the `/sweet/staging`. Make sure that before you created an initializer and condifured all needed commands and files.
 
+You need to have a "tail" and "wc" utils commands on the server to make everything working.
+
 ## TODO
 
 - on scroll put on pause, on scroll to the bottom continue scrolling
 - on selection put on pause
 - implement link to log line feature
 - specs
+- support for Ruby <2.5 (open3 gem looks like was extracted into a separate gem)
 
 ## Contributing
 
