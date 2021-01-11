@@ -7,7 +7,16 @@
 </script>
 
 <div class="page-content">
-  <div id="console"></div>
-  <textarea id="input" url="<%= sweet_staging.execute_url %>">User.first</textarea>
-  <button onclick="executeConsole();">Execute</button>
-</div>
+  <div class="console-content loader-wrapper">
+    <div class="loader is-loading"></div>
+  </div>
+  <div id="console" class="scrollable-content"></div>
+  
+  <div class="query-form page-footer">
+    <textarea id="input" class="query-field textarea" placeholder="Type query" url="<%= sweet_staging.execute_url %>"></textarea>
+    <button class="execute-btn button" id="clear" onclick="executeConsole();">
+      <%= icon 'play' %>
+      Execute
+    </button>
+  </div>
+</div>  

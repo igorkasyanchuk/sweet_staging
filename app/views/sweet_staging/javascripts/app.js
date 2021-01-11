@@ -6,7 +6,11 @@ var $pause = false;
 var $console = null;
 
 $(function() {
-  //
+  $('#input').keydown(function (e) {
+    if (e.ctrlKey && e.keyCode == 13) {
+      executeConsole();
+    }
+  });
 });
 
 function logsWorkerInit() {
@@ -111,14 +115,20 @@ function executeConsole() {
       code: $("#input").val()
     },
   }).done(function() { $running = false; });
+
+  $('.loader-wrapper').show();
+  $('#console').addClass('hidden');
 }
 
 function populateResults(code, html) {
-  html = html.replace(/^\&quot\;/g, '');
-  html = html.replace(/\&quot\;$/g, '');
+  html = html.replace(/\&quot\;/g, '');
 
   $console.innerHTML = $console.innerHTML + '<div class=\'code\'>' + code + '</div>';
 
   $console.innerHTML = $console.innerHTML + html;
   $console.scrollTop = $console.scrollHeight;
+
+  $('.code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
 }
