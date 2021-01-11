@@ -1,6 +1,6 @@
 SweetStaging.setup do |config|
-  config.enabled  = true
-  config.fetch_timeout = 2000
+  config.enabled = true
+  config.fetch_timeout = 1000
   config.console = true
   config.logs = [
     {
@@ -12,16 +12,8 @@ SweetStaging.setup do |config|
       path: "log/sidekiq.log"
     },
     {
-      name: "staging.log",
-      path: "log/staging.log"
-    },
-    {
       name: "cron.log",
       path: "log/cron.log"
-    },
-    {
-      name: "not-exists.log",
-      path: "log/not-exists.log"
     }
   ]
   config.commands = [

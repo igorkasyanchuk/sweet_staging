@@ -1,4 +1,4 @@
-# SweetStaging
+# Sweet Staging
 
 We often need access to the staging.logs (or production), sidekiq.log, etc. And often direct access to the server is closed and you cannot get them. The idea of this gem is let developer or QA get access to the logs which you want to share.
 
@@ -10,26 +10,33 @@ Additionaly you need to configure files which you want to get access to `confif/
 
 ```ruby
 SweetStaging.setup do |config|
-  config.enabled  = true
+  config.enabled = true
+  config.fetch_timeout = 1000
+  config.console = true
   config.logs = [
     {
-      name: "development.log",
-      path: "log/development.log"
+      name: "staging.log",
+      path: "log/staging.log"
     },
     {
       name: "sidekiq.log",
       path: "log/sidekiq.log"
     },
     {
-      name: "staging.log",
-      path: "log/staging.log"
-    },
-    {
       name: "cron.log",
       path: "log/cron.log"
     }
   ]
-  config.fetch_timeout = 1000
+  config.commands = [
+    {
+      name: "ps aux",
+      command: "ps aux"
+    },
+    {
+      name: "free -m",
+      command: "free -m"
+    }
+  ]
 end if defined?(SweetStaging)
 ```
 
@@ -48,10 +55,7 @@ $ bundle
 
 - on scroll put on pause, on scroll to the bottom continue scrolling
 - on selection put on pause
-- icons for pause, play
 - implement link to log line feature
-- rails console?
-- unix commands?
 
 ## Contributing
 

@@ -1,10 +1,10 @@
 <% @result = ap(@result) %>
 
 var result = `
-  <%= raw @result %>
+  <%= raw @result.gsub("`", '\'') %>
 `;
 
 $('.loader-wrapper').hide();
 $('#console').removeClass('hidden');
 
-populateResults('<%= params[:code] %>', result);
+populateResults('<%= j params[:code] %>', result);

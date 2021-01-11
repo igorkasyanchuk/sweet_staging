@@ -21,6 +21,8 @@ function logsWorkerInit() {
 
 function consoleWorkerInit() {
   $console = document.getElementById("console");
+
+  document.getElementById("input").focus();
 }
 
 function commandsWorkerInit() {
