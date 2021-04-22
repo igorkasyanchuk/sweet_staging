@@ -1,7 +1,27 @@
-<% @result = ap(@result) %>
+<% @result_ap = ap(@result, html: true, plain: false, color: {
+  args:       :pale,
+  array:      :white,
+  bigdecimal: :cyan,
+  class:      :yellow,
+  date:       :green,
+  falseclass: :red,
+  integer:    :cyan,
+  float:      :cyan,
+  hash:       :pale,
+  keyword:    :cyan,
+  method:     :purpleish,
+  nilclass:   :red,
+  rational:   :cyan,
+  string:     :yellowish,
+  struct:     :pale,
+  symbol:     :cyanish,
+  time:       :green,
+  trueclass:  :green,
+  variable:   :cyanish
+}) %>
 
 var result = `
-  <%= raw @result.gsub("`", '\'') %>
+  <%= raw @result_ap.gsub("`", '\'').gsub(/\e\[([;\d]+)?m/, '') %>
 `;
 
 $('.loader-wrapper').hide();
